@@ -18,7 +18,6 @@ String email=request.getParameter("email");
 if(!pwd.equals(repwd)){
 	out.println("Inconsist Password!");
 	%><br/><%
-	
 }else{
 	Class.forName("com.mysql.jdbc.Driver");
 	java.sql.Connection con =DriverManager.getConnection("jdbc:mysql://rucs336g33.c1g6evsz5qrw.us-east-2.rds.amazonaws.com:3306/user","cs336g33","mypassword");
@@ -30,10 +29,9 @@ if(!pwd.equals(repwd)){
 		int i=st.executeUpdate("insert into account values('"+userid+"','"+pwd+"','"+email+"' )");
 		out.println("Success "+userid);
 	}
-
 }
 %>
 <a href ="login.html">Login</a><br/>
-<a href="Home.jsp">Home</a>
+<a href="index.html">Home</a>
 </body>
 </html>

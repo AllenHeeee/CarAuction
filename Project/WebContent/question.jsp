@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./styleHome.css" /> 
 <title>Question</title>
 </head>
 <body>
@@ -29,20 +30,21 @@ if(!rs2.next()){
 	 out.println("Please enter a valid Auction ID!");
 }
 else{
-	rs2=st.executeQuery("select * from question where AuctionID='"+AuctionID+"' and QuestionerID='"+ID+"'");
+	/* rs2=st.executeQuery("select * from question where AuctionID='"+AuctionID+"' and QuestionerID='"+ID+"'");
 	if(rs2.next()){
 		out.println("You have to wait for your previous question to be answered to post a new question!");
-	}else{
+	}else{ */
 		st.executeUpdate("insert into question values('"+n+"','"+AuctionID+"','"+ID+"','"+Question+"','"+Answer+"' )");
 		%>
-		<h1>You have successfully posted a new question</h1>
+		<h1 id="SearchTitle">You have successfully posted a new question</h1>
 		<% 
-	}
+	/* } */
 	
 }
 
 %>
-
-<a href ="success.jsp"> Return to home </a>
+<form class="returnButton">
+<a id="Return" href ="success.jsp"> Return to home </a>
+</form>
 </body>
 </html>

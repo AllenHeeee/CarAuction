@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Search Result</title>
+<link rel="stylesheet" href="./styleHome.css" /> 
+<title>Likes</title>
 </head>
 <body>
 <%@ page import="java.sql.*"%>
@@ -18,7 +19,12 @@ java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://rucs336g33.c1g
 Statement st=con.createStatement();
 ResultSet rs=st.executeQuery("select * from likes where AuctionID = '"+AuctionID+"' and customerID = '"+name+"'");
 if(rs.next()){
-	out.println("You already set the notification on this auction!");
+	%>
+	<script>
+	alert("You already set the notification on this auction!");
+	</script>
+	<%
+	
 }
 else{
 	rs=st.executeQuery("select * from auction where AuctionID = '"+AuctionID+"'");
@@ -30,11 +36,15 @@ else{
 		rs=st.executeQuery("select * from account where uid = '"+name+"'");
 		if(rs.next())
 		st.executeUpdate("update likes set customerEmail ='"+rs.getString(3)+"' where customerID = '"+name+"'");
-		out.println("You have successfully set up the notificaion!");
+		%>
+		<h1 id="SearchTitle">You have successfully set up the notification!</h1>
+		<%
+		
 	}
 }
 %>
-
-<a href ="success.jsp"> Return to home </a>
+<form class="returnButton">
+<a id="Return" href ="success.jsp"> Return to home </a>
+</form>
 </body>
 </html>

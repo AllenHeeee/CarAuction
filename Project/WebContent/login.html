@@ -2,27 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<title>Home</title>
+<link rel="stylesheet" href="./stylelogin.css" />
+<title>LOG IN</title>
 </head>
 <body>
-
-login in as:
-
 <form class="box" action="login.jsp" method="post">
+<h2>Log In</h2>
 <select name="loginas">
-<option value="user">User </option>
+<option value="user">User</option>
 <option value="CR">Customer representatives </option>
-<option value="admin">Admin </option>
+<option value="admin">Admin</option>
 </select>
-<input type="text" name ="uid" placeholder="Username" />
-<input type="password" name="pwd" placeholder="Password" />
+<input type="text" name ="uid" placeholder="Username" required/>
+<input type="password" name="pwd" placeholder="Password" required />
 <input type="submit" value="Login"/>
- </form>
-
-<form class="choice">
-<a href ="signup.html">Sign up as user</a><br/>
-
 </form>
+<form class="GoBack">
+<a id="Link" href ="index.html">Home</a><br/>
+<a id="Link" href ="signup.html">Sign up</a><br/>
+</form>
+
 </body>
 </html>

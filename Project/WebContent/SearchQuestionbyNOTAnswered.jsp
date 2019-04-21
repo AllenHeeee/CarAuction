@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./styleHome.css" /> 
 <title>Search Result</title>
 </head>
 <body>
@@ -20,7 +21,7 @@ if(!rs.next()){
 }
 else{
 %>
-<h2>Search Result</h2>
+<h2 id="SearchTitle">Search Result</h2>
 <table>
 <tr>
 <td>Question ID</td><td>Auction ID</td><td>Questioner</td><td>Question</td><td>Answer</td>
@@ -39,17 +40,19 @@ else{
 %>
 </table>
 <form class="newQuestion" action="question.jsp" method="post">
-<h3>Post new question</h3>
-<input type="text" name ="AuctionID" placeholder="Auction ID"/>
-<input type="text" name="question" placeholder="Question"/>
+<h3 style=" margin-left: 80px;">Post new question</h3>
+<input type="text" name ="AuctionID" placeholder="Auction ID" required/>
+<input type="text" name="question" placeholder="Question" required/>
 <input type="submit" value="Post"/>
 </form>
 <form class="Answer" action="answer.jsp" method="post">
-<h3>Answer a question</h3>
-<input type="text" name ="QuestionID" placeholder="Question ID"/>
-<input type="text" name="answer" placeholder="Answer"/>
+<h3 style=" margin-right: 130px;">Answer a question</h3>
+<input type="text" name ="QuestionID" placeholder="Question ID" required/>
+<input type="text" name="answer" placeholder="Answer" required/>
 <input type="submit" value="Post"/>
 </form>
-<a href ="success.jsp"> Return to home </a>
+<form class="returnButton">
+<a id="Return" href ="success.jsp"> Return to home </a>
+</form>
 </body>
 </html>

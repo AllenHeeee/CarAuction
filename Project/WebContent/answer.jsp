@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="./styleHome.css" /> 
+<title>Answer a Question</title>
 </head>
 <body>
 <%@ page import="java.sql.*"%>
@@ -21,12 +22,13 @@ if(!rs.next()){
 }else{
 	st.executeUpdate("update question set Answer = '"+Answer+"' where QuestionID = '"+QuestionID+"'");
 	%>
-	<h1>You have successfully answered a new question</h1>
+	<h1 id="SearchTitle">You have successfully answered a new question</h1>
 	<% 
 }
 
 %>
-
-<a href ="success.jsp"> Return to home </a>
+<form class="returnButton">
+<a id="Return" href ="success.jsp"> Return to home </a>
+</form>
 </body>
 </html>
