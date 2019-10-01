@@ -29,6 +29,15 @@ h1{
     color: #87CEFA;
 
 }
+
+.container{
+	width:80%;
+	margin:auto;
+	overflow:hidden;
+}
+
+
+
 .box input[type = "text"], .box input[type = "password"]{
     border: 0;
     background: none;

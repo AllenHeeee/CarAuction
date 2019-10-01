@@ -11,6 +11,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
 <%
+String name=session.getAttribute("username").toString();
 Class.forName("com.mysql.jdbc.Driver"); 
 java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://rucs336g33.c1g6evsz5qrw.us-east-2.rds.amazonaws.com:3306/user",
 		"cs336g33","mypassword");
@@ -40,17 +41,22 @@ else{
 %>
 </table>
 <form class="newQuestion" action="question.jsp" method="post">
-<h3 style=" margin-left: 80px;">Post new question</h3>
+<h3>Post new question</h3>
 <input type="text" name ="AuctionID" placeholder="Auction ID" required/>
 <input type="text" name="question" placeholder="Question" required/>
 <input type="submit" value="Post"/>
 </form>
+<% 
+rs=st.executeQuery("select * from cr where uid = '"+name+"'");
+if(rs.next()){
+%>
 <form class="Answer" action="answer.jsp" method="post">
-<h3 style=" margin-right: 130px;">Answer a question</h3>
+<h3>Answer a question</h3>
 <input type="text" name ="QuestionID" placeholder="Question ID" required/>
 <input type="text" name="answer" placeholder="Answer" required/>
-<input type="submit" value="Post"/>
+<input type="submit" value="Answer"/>
 </form>
+<% }%>
 <form class="returnButton">
 <a id="Return" href ="success.jsp"> Return to home </a>
 </form>

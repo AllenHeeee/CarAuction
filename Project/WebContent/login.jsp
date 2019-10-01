@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./stylelogin.css" /> 
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,6 +24,7 @@ if(loginas.compareTo("user")==0){
 	ResultSet rs=st.executeQuery("select * from account where uid='"+userid+"' and pwd='" + pwd + "'");
 	if(rs.next()){
 		session.setAttribute("username", userid);
+		session.setAttribute("usertype", "user");
 		response.sendRedirect("success.jsp");
 	}
 	else
@@ -32,6 +34,7 @@ if(loginas.compareTo("CR")==0){
 	ResultSet rs=st.executeQuery("select * from cr where uid='"+userid+"' and pwd='" + pwd + "'");
 	if(rs.next()){
 		session.setAttribute("username", userid);
+		session.setAttribute("usertype", "cr");
 		response.sendRedirect("success.jsp");
 	}
 	else
@@ -41,10 +44,13 @@ if(loginas.compareTo("admin")==0){
 	ResultSet rs=st.executeQuery("select * from admin where uid='"+userid+"' and password='" + pwd + "'");
 	if(rs.next()){
 		session.setAttribute("username", userid);
+		session.setAttribute("usertype", "admin");
 		response.sendRedirect("success.jsp");
 	}
 	else
-		out.println("Wrong UserID or Password.<a href ='login.html'> Try again</a><br/><a href ='signup.html'> Sign Up</a>");
+		%><h1>Wrong UserID or Password.<h1/>
+		<a href ='login.html'> Try again</a><br/><a href ='signup.html'> Sign Up</a>
+<% 
 }
 %>
 
